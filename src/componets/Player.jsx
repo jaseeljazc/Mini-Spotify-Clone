@@ -24,7 +24,7 @@ export const Player = () => {
           <p>{track.desc.slice(0, 12)}</p>
         </div>
       </div>
-      <div className=" bottom-0 left-0 right-0 flex lg:hidden items-center gap-4 justify-center bg-black text-white p-2 z-50">
+      <div className=" bottom-0 left-0 right-0 flex lg:hidden items-center gap-5 justify-center bg-black text-white p-2 z-50">
         <img className="w-12" src={track.image} alt="" />
         <div>
           <p>{track.name}</p>
