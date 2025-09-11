@@ -16,7 +16,7 @@ export const Player = () => {
     seekSong,
   } = useContext(PlayerContext);
   return (
-    <div className="h-[15%] md:h-[10%] bg-black md:flex justify-between items-center text-white px-4">
+    <div className="fixed bottom-0 left-0 right-0 bg-black text-white px-4 z-50 flex flex-col md:flex-row justify-between items-center h-[15%] md:h-[10%]">
       <div className=" hidden lg:flex items-center gap-4">
         <img className="w-12" src={track.image} alt="" />
         <div>
@@ -24,13 +24,15 @@ export const Player = () => {
           <p>{track.desc.slice(0, 12)}</p>
         </div>
       </div>
-      <div className=" flex lg:hidden items-center gap-4 justify-center mb-4">
-        <img className="w-12" src={track.image} alt="" />
-        <div>
-          <p>{track.name}</p>
-          <p>{track.desc.slice(0, 12)}</p>
-        </div>
-      </div>
+     <div className="fixed bottom-0 left-0 right-0 flex lg:hidden items-center gap-4 justify-center bg-black text-white p-2 z-50">
+  <img className="w-12" src={track.image} alt="" />
+  <div>
+    <p>{track.name}</p>
+    <p>{track.desc.slice(0, 12)}</p>
+  </div>
+</div>
+
+
       <div className=" flex flex-col items-center gap-1 m-auto ">
         <div className=" flex gap-4 ">
           <img
