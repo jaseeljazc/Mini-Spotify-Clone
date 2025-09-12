@@ -15,6 +15,13 @@ export const Player = () => {
     next,
     seekSong,
   } = useContext(PlayerContext);
+
+  const formatTime = (minute, second) => {
+    const m = String(minute).padStart(2, "0");
+    const s = String(second).padStart(2, "0");
+    return `${m}:${s}`;
+  };
+
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-black text-white px-4 z-50 flex flex-col md:flex-row justify-between items-center h-[15%] md:h-[10%]">
       <div className=" hidden lg:flex items-center gap-4">
@@ -70,9 +77,8 @@ export const Player = () => {
           <img className="w-4 cursor-pointer" src={assets.loop_icon} alt="" />
         </div>
         <div className=" flex items-center gap-5">
-          <p>
-            {time.currentTime.minute}: {time.currentTime.second}
-          </p>
+          <p>{formatTime(time.currentTime.minute, time.currentTime.second)}</p>
+
           <div
             ref={seekBg}
             onClick={seekSong}
@@ -83,9 +89,7 @@ export const Player = () => {
               className=" h-1 border-none w-0 bg-green-800 rounded-full"
             />
           </div>
-          <p>
-            {time.totalTime.minute}:{time.totalTime.second}
-          </p>
+          <p>{formatTime(time.totalTime.minute, time.totalTime.second)}</p>
         </div>
       </div>
       <div className=" hidden lg:flex items-center gap-2 opacity-75">
